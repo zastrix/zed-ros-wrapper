@@ -62,7 +62,7 @@ int computeDepth;
 
 void publishImages(cv::Mat left, cv::Mat second, image_transport::Publisher &pub_left, image_transport::Publisher &pub_second,
         string left_frame_id, string second_frame_id, ros::Time t) {
-    ROS_INFO("PUBLISHIMAGES IS WORKING");
+
     // Publish left image
     cv_bridge::CvImage left_im;
     left_im.image = left;
@@ -87,7 +87,6 @@ void publishCamInfo(sensor_msgs::CameraInfoPtr left_cam_info_msg, sensor_msgs::C
         ros::Publisher pub_left_cam_info, ros::Publisher pub_second_cam_info, ros::Time t) {
     static int seq = 0;
 
-    ROS_INFO("PUBLISHCAMINFO IS WORKING");
     left_cam_info_msg->header.stamp = second_cam_info_msg->header.stamp = t;
     left_cam_info_msg->header.seq = second_cam_info_msg->header.seq = seq;
 
@@ -121,7 +120,6 @@ void fillCamInfo(Camera* zed, sensor_msgs::CameraInfoPtr left_cam_info_msg, sens
     double p1 = 0;
     double p2 = 0;
 
-    ROS_INFO("FILLCAMINFO IS WORKING");
 
     left_cam_info_msg->distortion_model = sensor_msgs::distortion_models::PLUMB_BOB;
     second_cam_info_msg->distortion_model = sensor_msgs::distortion_models::PLUMB_BOB;
