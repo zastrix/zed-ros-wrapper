@@ -27,11 +27,11 @@ SET(ZED_INCLUDE_DIRS $ENV{ZED_INCLUDE_DIRS})
 SET(ZED_LIBRARY_DIR $ENV{ZED_LIBRARY_DIR})
 SET(OPENCV_DIR $ENV{OPENCV_DIR})
 ELSE() # Linux
-find_package(ZED 0.9 REQUIRED)
+find_package(ZED REQUIRED)
 ENDIF(WIN32)
 
-find_package(CUDA 6.5 REQUIRED)
-find_package(OpenCV 2.4 COMPONENTS core highgui imgproc REQUIRED)
+find_package(CUDA REQUIRED)
+find_package(OpenCV REQUIRED)
 
 find_package(catkin REQUIRED COMPONENTS
   image_transport
@@ -83,7 +83,7 @@ target_link_libraries(
         ${catkin_LIBRARIES}
         ${ZED_LIBRARIES}
 	${CUDA_LIBRARIES} ${CUDA_nppi_LIBRARY} ${CUDA_npps_LIBRARY}
-        ${OpenCV_LIBS}  
+        ${OpenCV_LIBRARIES}  
     )
 ###############################################################################
 
